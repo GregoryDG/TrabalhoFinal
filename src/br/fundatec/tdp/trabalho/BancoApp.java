@@ -8,8 +8,8 @@ public class BancoApp {
 		int opcao, opcao2;
 		double valor;
 		
-		ContaCorrente contaCorrente = new ContaCorrente(800);
-		ContaPoupanca contaPoupanca = new ContaPoupanca(500);
+		ContaCorrente contaCorrente = new ContaCorrente(1000);
+		ContaPoupanca contaPoupanca = new ContaPoupanca(1000);
 		Scanner entrada = new Scanner(System.in);
 		
 		do{
@@ -50,9 +50,45 @@ public class BancoApp {
 						contaCorrente.transfContaPoup(valor);
 						break;
 					}
+					default: {
+						System.out.println("Essa operação é inválida");
+					}
 				}
 			} else if (opcao2 == 2){
+				System.out.println("Bem vindo à sua Conta Poupança. Deseja:");
+				System.out.println("(1) Sacar");
+				System.out.println("(2) Depositar");
+				System.out.println("(3) Ver saldo");
+				System.out.println("(4) Transferir dinheiro para a Conta Corrente");
+				opcao = entrada.nextInt();
 				
+				switch (opcao){
+					case 1: {
+						System.out.println("Qual a contia que deseja sacar?");
+						valor = entrada.nextDouble();
+						contaPoupanca.sacar(valor);
+						break;
+					}
+					case 2: {
+						System.out.println("Qual a contia que deseja depositar?");
+						valor = entrada.nextDouble();
+						contaPoupanca.depositar(valor);
+						break;
+					}
+					case 3: {
+						contaPoupanca.verSaldo();
+						break;
+					}
+					case 4: {
+						System.out.println("Qual a contia que deseja transferir?");
+						valor = entrada.nextDouble();
+						contaPoupanca.transfContaCorren(valor);
+						break;
+					}
+					default: {
+						System.out.println("Essa operação é inválida");
+					}
+				}
 			}
 		} while (opcao2 != 3);
 		System.out.println("Volte quando quiser!");
