@@ -46,11 +46,14 @@ public class BancoApp {
 					}
 					case 4: {
 						System.out.println("Qual a contia que deseja transferir?");
-						contaCorrente.verSaldo();
+						valor = entrada.nextDouble();
+						contaCorrente.transfContaPoup(valor);
 						break;
 					}
 				}
-			}	
+			} else if (opcao2 == 2){
+				
+			}
 		} while (opcao2 != 3);
 		System.out.println("Volte quando quiser!");
 		entrada.close();

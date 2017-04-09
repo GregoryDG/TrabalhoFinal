@@ -1,8 +1,7 @@
 package br.fundatec.tdp.trabalho;
 
 public class ContaCorrente {
-	private double saldo, saldoTransf, chequeEspecial = 500;
-	private ContaPoupanca accPoup;
+	private double saldo, chequeEspecial = 500;
 
 	public ContaCorrente(double saldo) {
 		this.saldo = saldo;
@@ -22,14 +21,6 @@ public class ContaCorrente {
 
 	public void setChequeEspecial(double chequeEspecial) {
 		this.chequeEspecial = chequeEspecial;
-	}
-
-	public ContaPoupanca getAccPoup() {
-		return accPoup;
-	}
-
-	public void setAccPoup(ContaPoupanca accPoup) {
-		this.accPoup = accPoup;
 	}
 	
 	public void sacar (double valor){
@@ -56,7 +47,7 @@ public class ContaCorrente {
 		System.out.println("Seu saldo é: R$" + getSaldo());
 	}
 	
-	public void transfContaPoupanca (double valor){
+	public void transfContaPoup (double valor){
 		if (valor <= this.saldo) {
 			this.saldo = (this.saldo - valor) - 1;
 			System.out.println("Deposito de R$" + valor + " na conta poupança foi executado com sucesso! Foi cobrada uma taxa de transfereência de R&1,00.");
